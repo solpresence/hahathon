@@ -2,7 +2,7 @@ package client
 
 import (
 	"hahathon/internal/tabs-client/repo"
-	actiontypes "hahathon/internal/tabs-client/repo/action_types"
+	"hahathon/internal/tabs-client/repo/actions"
 	"log/slog"
 )
 
@@ -15,7 +15,7 @@ type Client struct {
 
 func NewClient(token string, log *slog.Logger) *Client {
 	return &Client{
-		ActionTypes: actiontypes.NewActionsTypes(token, log),
+		ActionTypes: actions.NewActionsTypes(token, log),
 		log:         log,
 	}
 }

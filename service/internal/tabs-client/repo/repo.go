@@ -1,7 +1,7 @@
 package repo
 
-import actiontypes "hahathon/internal/tabs-client/repo/action_types"
+import "hahathon/internal/tabs-client/repo/actions"
 
 type ActionTypesRepo interface {
-	Create(actiontypes.PostReq) *actiontypes.PostRes
+	Create(actions.PostReq) (*actions.PostRes, error)
 }
