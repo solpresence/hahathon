@@ -8,6 +8,7 @@ import (
 
 type Config struct {
 	Env        string `env:"ENV"`
+	Token      string `env:"API_TOKEN"`
 	Htppserver Httpserver
 }
 
