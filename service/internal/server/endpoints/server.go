@@ -27,7 +27,7 @@ func (s *Server) CreateServer() {
 	idleTimeout, _ := strconv.Atoi(s.cfg.Htppserver.IddleTimeout)
 	timeout, _ := strconv.Atoi(s.cfg.Htppserver.Timeout)
 	limit := middleware.NewIPRateLimiter(maxConn, time.Minute, 10)
-	
+
 	router := chi.NewRouter()
 
 	router.Use(limit.Limit)
@@ -36,7 +36,7 @@ func (s *Server) CreateServer() {
 			r.Get("/", ping.Pong(s.log))
 		})
 		r.Route("/employees", func(r chi.Router) {
-			
+
 		})
 		r.Route("/positions", func(r chi.Router) {
 

@@ -7,8 +7,8 @@ import (
 )
 
 type Config struct {
-	Env			string `env:"ENV"`
-	Htppserver  Httpserver
+	Env        string `env:"ENV"`
+	Htppserver Httpserver
 }
 
 type Httpserver struct {
@@ -18,7 +18,7 @@ type Httpserver struct {
 	MaxConn      string `env:"MAX_CONN"`
 }
 
-func MustLoad() (*Config) {
+func MustLoad() *Config {
 	envPath := "../../.env"
 
 	var cfg Config
@@ -26,6 +26,6 @@ func MustLoad() (*Config) {
 		log.Fatalf("can not read config: %s", err)
 		panic(err)
 	}
-	
+
 	return &cfg
 }
