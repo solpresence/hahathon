@@ -6,15 +6,14 @@ import (
 	"log/slog"
 )
 
-type Client struct {
+type client struct {
 	ActionTypes repo.ActionTypesRepo
-	Token       string
-
+	
 	log *slog.Logger
 }
 
-func NewClient(token string, log *slog.Logger) *Client {
-	return &Client{
+func NewClient(token string, log *slog.Logger) *client {
+	return &client{
 		ActionTypes: actions.NewActionsTypes(token, log),
 		log:         log,
 	}

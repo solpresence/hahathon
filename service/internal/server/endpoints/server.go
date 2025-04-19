@@ -3,8 +3,11 @@ package endpoints
 import (
 	"hahathon/internal/config"
 	"hahathon/internal/server"
-	"hahathon/internal/server/endpoints/v1/ping"
+	actionsEndpoints "hahathon/internal/server/endpoints/v1/actions"
+	pingEndpoints "hahathon/internal/server/endpoints/v1/ping"
 	"hahathon/internal/server/middleware"
+	client "hahathon/internal/tabs-client"
+
 	"log/slog"
 	"net/http"
 	"strconv"
@@ -27,28 +30,17 @@ func (s *Server) CreateServer() {
 	idleTimeout, _ := strconv.Atoi(s.cfg.Htppserver.IddleTimeout)
 	timeout, _ := strconv.Atoi(s.cfg.Htppserver.Timeout)
 	limit := middleware.NewIPRateLimiter(maxConn, time.Minute, 10)
-
+	repoClient := client.NewClient(s.cfg.Token, s.log)
 	router := chi.NewRouter()
 
 	router.Use(limit.Limit)
 	router.Route("/v1", func(r chi.Router) {
 		router.Route("/ping", func(r chi.Router) {
-			r.Get("/", ping.Pong(s.log))
+			r.Get("/", pingEndpoints.Pong(s.log))
 		})
-		r.Route("/employees", func(r chi.Router) {
 
-		})
-		r.Route("/positions", func(r chi.Router) {
-
-		})
 		r.Route("/actions", func(r chi.Router) {
-
-		})
-		r.Route("/locations", func(r chi.Router) {
-
-		})
-		r.Route("/action_types", func(r chi.Router) {
-
+			r.Post("/", actionsEndpoints.Create(repoClient.ActionTypes, s.log))
 		})
 	})
 

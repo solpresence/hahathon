@@ -4,9 +4,9 @@ type (
 	PostReq struct {
 		Records []struct {
 			Fields struct {
-				IdEmployee []string `json:"id_employee"`
-				IdAction   []string `josn:"id_action"`
-				IdLocation []string `json:"id_location"`
+				IdEmployee []string `json:"fld4bl4ul8fmz"`
+				IdAction   []string `json:"fldRGb7pEMUb8"`
+				IdLocation []string `json:"fldu9XfPVMGGP"`
 			} `json:"fields"`
 		} `json:"records"`
 		FieldKey string `json:"fieldKey"`

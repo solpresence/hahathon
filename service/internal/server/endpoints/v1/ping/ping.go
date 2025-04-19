@@ -1,4 +1,4 @@
-package ping
+package pingEndpoints
 
 import (
 	"encoding/json"

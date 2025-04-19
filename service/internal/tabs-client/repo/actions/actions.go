@@ -9,15 +9,15 @@ import (
 )
 
 const (
-	url = "https://true.tabs.sale/fusion/v1/datasheets/dstByDoDJcx86DCame/records?viewId=viw8w1ZCpTYEt&fieldKey=name"
+	url = "https://true.tabs.sale/fusion/v1/datasheets/dstByDoDJcx86DCame/records?viewId=viw8w1ZCpTYEt&fieldKey=id"
 )
 
-type ActionsTypes struct {
+type actionsTypes struct {
 	token string
-	log *slog.Logger
+	log   *slog.Logger
 }
 
-func (at *ActionsTypes) Create(body PostReq) (*PostRes, error) {
+func (at *actionsTypes) Create(body PostReq) (*PostRes, error) {
 	jsonData, err := json.Marshal(body)
 	if err != nil {
 		at.log.Warn("error encoding JSON", "err", err)
@@ -55,9 +55,9 @@ func (at *ActionsTypes) Create(body PostReq) (*PostRes, error) {
 	return &result, nil
 }
 
-func NewActionsTypes(token string, log *slog.Logger) *ActionsTypes {
-	return &ActionsTypes{
+func NewActionsTypes(token string, log *slog.Logger) *actionsTypes {
+	return &actionsTypes{
 		token: token,
-		log: log,
+		log:   log,
 	}
 }
