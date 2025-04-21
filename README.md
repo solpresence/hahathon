@@ -60,16 +60,20 @@ docker-compose up --build
 ```json
 {
     "fld4bl4ul8fmz": "id работника",
-	"fldRGb7pEMUb8": "id действия",
-	"fldu9XfPVMGGP": "id месторасположения"
+    "fldRGb7pEMUb8": "id действия",
+    "fldu9XfPVMGGP": "id месторасположения"
 }
 ```
 Ответ:
 ```json
 {
     "code": "200",
-	"success": true,
-	"message": "Успешный успех"
+    "success": true,
+    "message": "Успешный успех"	
 }
 ```
 Полная документация доступна по адресу ~~/api/docs~~ после запуска приложения.
+
+Документация True Tabs https://developers.vika.cn/api/introduction/
+
+:copyright:Vigyun
