@@ -1,0 +1,26 @@
+services:
+  gateway:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - service
+    networks:
+      - tables-network
+
+  service:
+    build:
+      context: ./service
+      dockerfile: dockerfile
+    ports:
+      - "8080"
+    networks:
+      - tables-network
+    deploy:
+      replicas: 4
+
+networks:
+  tables-network:
+    driver: bridge
