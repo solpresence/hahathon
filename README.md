@@ -76,4 +76,4 @@ docker-compose up --build
 
 Документация True Tabs https://developers.vika.cn/api/introduction/
 
-:copyright:Vigyun
+:copyright:2022 深圳维格云科技有限公司.All rights reserved
